@@ -1,0 +1,44 @@
+Banica Alexandru-Ionut 321 CB
+
+ClassState:
+Am definit ClassState ca un container de tipul Map.
+insertIntoClass insereaza in ClassState un element folosind functia din insert din Map.
+getValues returneaza toate functiile sau toate variabilele in functie de parametru dintr-un ClassState,
+iar getValues2 returneaza toate functiile si toate variabilele.
+
+Parser:
+In Parser am definit Class, o structura care retine numele clasei,numele parintelui si o lista de ClassState-uri,
+deci Class reprezinta o clasa din program,iar un program reprezinta o lista de Class-uri.
+
+Am considerat ca Instruction este o lista de Stringuri.
+
+Functia existaClasa verifica daca o clasa deja exista in program,
+existaClasa2 verifica daca parintele exista in program,
+existaClasa3 verifica daca la o functie tipul returnat este in program,
+existaClasa4 verifica la o functie daca la o functie sibolul clasei exista in program si
+existaClasa5 verifica la o functie daca toti parametrii sunt valizi.
+
+initEmtyProgram initializeaza lista ca o Clasa Globa,
+getVars,getClasses,getParentClass,getFuncsForClass returneza toate variabilele respectiv toate clasele,
+parintii unei clase si functiile dintr-o clasa folosind unele dintr-e functiile declarate in ClassState.
+
+functia parse mai intai inlocuieste toate aparitiile semnelor ( = : ( ) ,) cu caracterul ' ' (spatiu) folosind
+functia repl apoi folosind functia predefinita lines separa liniile ,functia separa foloseste functia words
+sa separe cuvintele intre ele,iar functia remv sterge toate listele goale create de functia words.
+
+insertIntoClass2 ia clasa global si ii insereaza cate o variabila.
+insertIntoClass3 gaseste clasa unei functii si insereaza acolo functia.
+
+nrPar intoarce numarul de paramtrii dintr-o instructiune.
+
+functia Interpret: 
+-prima data verifica daca primul paramtru dintr-o instructiune este "class" daca da
+inseamna ca urmeaza sa fie inserata o clasa si verifica daca instructiune are 4 sau 2 paramtrii si daca clasa si clasa parinte exista sau nu,
+daca are 4 parametrii inseamna ca extinde o clasa,daca are 2 insamna ca extinde clasa global.Apoi daca are 4 parametrii si clasa nu exista dar 
+parintele exista se insereaza o noua clasa cu acel nume si numele parintelui,daca clasa are 4 paremtrii si clasa nu exista si nici 
+parintele nu exista se insereaza o noua clasa cu acel nume si parintele global,daca functia are 2 parametrii si functia nu exista se insereaza 
+clasa respectiva altfel se trece mai departe.
+-daca primul parametru din instructiune este newvar inseamna ca urmeaza sa se adauge o noua variabila si se adauga in clasa global.
+-altfel inseamna ca urmeaza sa se insereze o functie si se verifica daca tipul returnat,clasa unde trebuie inserat si toti parametrii exista in program 
+si daca da se insereaza functia la clasa respectiva
+-daca nu intra pe niciun if inseamna ca instructiunea trebuie ignorata si se intoarce programul primit ca parametru.
